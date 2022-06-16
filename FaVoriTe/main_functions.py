@@ -3,12 +3,12 @@ import random
 from unidecode import unidecode
 
 
-# Get Data
-words = pd.read_csv('/home/lubo/code/wRajter/FaVoriTe/FaVoriTe/data/german_words_1500_SK.csv')
-dict_words = words.to_dict(orient="records")
+def get_data(path='/home/lubo/code/wRajter/FaVoriTe/FaVoriTe/data/german_words_1500_SK.csv'):
+    '''returns the dictionary of words with its corresponding translation'''
+    words = pd.read_csv(path)
+    return words.to_dict(orient="records")
 
-
-def random_word():
+def random_word(dict_words):
     '''returns a random word and its translated version'''
     return (random.choice(dict_words))
 
@@ -43,7 +43,8 @@ def check_answer(current_word, user_input, list_answers):
 
 
 if __name__ == '__main__':
-    current_word = random_word()
+    dict_words = get_data()
+    current_word = random_word(dict_words)
     print(f'slovak version: {slovak_word(current_word)}')
     user_input = input(f'please translate {german_word(current_word)} into slovak:   ')
     list_answers = answer_split(current_word)
