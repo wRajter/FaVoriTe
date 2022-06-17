@@ -20,7 +20,6 @@ with options:
     lang_user = st.sidebar.selectbox('Select the language in which you want to answer', ['English', 'German', 'Slovak'])
     size = st.sidebar.slider(label='Number of words you want to train with', min_value=10, max_value=100, value=10, step=10)
     data = mf.get_data(size=size)
-    st.write(len(data))
 
 
 
