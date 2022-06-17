@@ -3,10 +3,11 @@ import random
 from unidecode import unidecode
 
 
-def get_data(path='/home/lubo/code/wRajter/FaVoriTe/FaVoriTe/data/german_words_1500_SK.csv'):
-    '''returns the dictionary of words with its corresponding translation'''
+def get_data(path='/home/lubo/code/wRajter/FaVoriTe/FaVoriTe/data/german_words_1500_SK.csv', size=100):
+    '''returns the dictionary of words with its corresponding translation, you can optionally specify number of words you want to use'''
     words = pd.read_csv(path)
-    return words.to_dict(orient="records")
+    words_resized = words.head(size)
+    return words_resized.to_dict(orient="records")
 
 def random_word(dict_words):
     '''returns a random word and its translated version'''

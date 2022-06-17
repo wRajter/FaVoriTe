@@ -13,14 +13,12 @@ with header:
 
 
 with options:
-    st.header('Options')
-    st.text('You can choose a deck of words that you want to learn.')
-    lang_trainer = st.selectbox('Select the language in which you want to have words for translation displayed.', ['English', 'German', 'Slovak'])
-    lang_user = st.selectbox('Select the language in which you want to answer', ['English', 'German', 'Slovak'])
-
-with dataset:
-    data = mf.get_data()
-
+    st.sidebar.header('Options')
+    lang_trainer = st.sidebar.selectbox('Select the language in which you want to have words for translation displayed.', ['English', 'German', 'Slovak'])
+    lang_user = st.sidebar.selectbox('Select the language in which you want to answer', ['English', 'German', 'Slovak'])
+    size = st.sidebar.slider(label='Number of words you want to train with', min_value=10, max_value=100, value=10, step=10)
+    data = mf.get_data(size=size)
+    st.write(len(data))
 
 
 
