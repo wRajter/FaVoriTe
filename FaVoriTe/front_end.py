@@ -16,15 +16,15 @@ with header:
 
 with options:
     st.sidebar.header('Options')
-    lang_trainer = st.sidebar.selectbox('Select the language for a word that you will translate.', ['English', 'German', 'Slovak'])
-    lang_user = st.sidebar.selectbox('Select the language in which you want to answer', ['English', 'German', 'Slovak'])
+    select_first_lang = st.sidebar.selectbox('Select the language for a word that you will translate.', ['English', 'German', 'Slovak'])
+    select_second_lang = st.sidebar.selectbox('Select the language in which you want to answer', ['German', 'English', 'Slovak'])
     size = st.sidebar.slider(label='Number of words you want to train with', min_value=10, max_value=100, value=10, step=10)
-    data = mf.get_data(size=size)
+    data = mf.get_data(size=size, first_lang=select_first_lang, second_lang=select_second_lang)
 
 
 
-if "input_text" not in st.session_state:
-    st.session_state['input_text'] = ''
+# if "input_text" not in st.session_state:
+#     st.session_state['input_text'] = ''
 
 if 'current_word' not in st.session_state:
     st.session_state['current_word'] = mf.random_word(data)
@@ -36,10 +36,20 @@ with train:
     if next_word:
         st.session_state['current_word'] = mf.random_word(data)
 
-    user_input = st.text_input(f'Please translate {mf.german_word(st.session_state["current_word"])} into Slovak', key="input_text")
+    word_in_both_langs = st.session_state["current_word"]
+
+    st.write(word_in_both_langs)
+
+    word_first_lang = word_in_both_langs[select_first_lang]
+    word_second_lang = word_in_both_langs[select_second_lang]
+    possible_answers = mf.answer_split(word_second_lang)
+
+    user_input = st.text_input(f'Please translate {word_first_lang} into {select_second_lang}', key="input_text")
     if st.session_state['input_text'] == '':
         st.write('')
     else:
         user_input = st.session_state.input_text
-        list_answers = mf.answer_split(st.session_state["current_word"])
-        st.write(mf.check_answer(st.session_state["current_word"], user_input, list_answers))
+        if mf.check_answer(user_input, possible_answers):
+            st.write(f"Correct!\n{word_first_lang} means {', '.join(possible_answers)}")
+        else:
+            st.write(f"{word_first_lang} means {', '.join(possible_answers)}")
