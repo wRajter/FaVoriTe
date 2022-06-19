@@ -22,10 +22,6 @@ with options:
     data = mf.get_data(size=size, first_lang=select_first_lang, second_lang=select_second_lang)
 
 
-
-# if "input_text" not in st.session_state:
-#     st.session_state['input_text'] = ''
-
 if 'current_word' not in st.session_state:
     st.session_state['current_word'] = mf.random_word(data)
 
@@ -50,6 +46,6 @@ with train:
     else:
         user_input = st.session_state.input_text
         if mf.check_answer(user_input, possible_answers):
-            st.write(f"Correct!\n{word_first_lang} means {', '.join(possible_answers)}")
+            st.write(f"### Correct! 😀👌🎉\n#### {word_first_lang} means {', '.join(possible_answers)}")
         else:
-            st.write(f"{word_first_lang} means {', '.join(possible_answers)}")
+            st.write(f"### {word_first_lang} means {', '.join(possible_answers)} 👩‍🏫")
