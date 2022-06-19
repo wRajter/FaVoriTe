@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-06-19 19:27+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: FaVoriTe/app.py:16
+msgid "Welcome to FaVoriTe, your own Fast Vocabulary Trainer 🥋"
+msgstr ""
+
+#: FaVoriTe/app.py:20
+msgid "Options"
+msgstr ""
+
+#: FaVoriTe/app.py:21
+msgid "Select the language for a word that you will translate."
+msgstr ""
+
+#: FaVoriTe/app.py:22
+msgid "Select the language in which you want to answer"
+msgstr ""
+
+#: FaVoriTe/app.py:23
+msgid "Number of words you want to train with"
+msgstr ""
+
+#: FaVoriTe/app.py:32
+msgid "Your Workout 🏋️🧠"
+msgstr ""
+
+#: FaVoriTe/app.py:33
+msgid "Gimme a word"
+msgstr ""
+
+#: FaVoriTe/app.py:46
+msgid " into "
+msgstr ""
+
+#: FaVoriTe/app.py:46
+msgid "Please translate "
+msgstr ""
+
+#: FaVoriTe/app.py:52
+msgid "### Correct! 😀👌🎉"
+msgstr ""
+
+#: FaVoriTe/app.py:53 FaVoriTe/app.py:55
+msgid " means "
+msgstr ""
+
