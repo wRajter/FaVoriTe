@@ -53,3 +53,9 @@ pypi_test:
 
 pypi:
 	@twine upload dist/* -u $(PYPI_USERNAME)
+
+# ----------------------------------
+#      PYGETTEXT
+# ----------------------------------
+extract:
+	@/mnt/c/Users/Lubomir/anaconda3/pkgs/python-3.9.7-h6244533_1/Tools/i18n/pygettext.py -d base -o locales/base.pot FaVoriTe/app.py
