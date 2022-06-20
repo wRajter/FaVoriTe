@@ -59,3 +59,9 @@ pypi:
 # ----------------------------------
 extract:
 	@/mnt/c/Users/Lubomir/anaconda3/pkgs/python-3.9.7-h6244533_1/Tools/i18n/pygettext.py -d base -o locales/base.pot FaVoriTe/app.py
+base_po:
+	@cp locales/base.pot locales/de/LC_MESSAGES/base.po
+	@cp locales/base.pot locales/svk/LC_MESSAGES/base.po
+base_mo:
+	@msgfmt -o locales/de/LC_MESSAGES/base.mo locales/de/LC_MESSAGES/base
+	@msgfmt -o locales/svk/LC_MESSAGES/base.mo locales/svk/LC_MESSAGES/base
