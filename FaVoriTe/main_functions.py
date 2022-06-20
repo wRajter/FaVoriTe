@@ -3,7 +3,7 @@ import random
 from unidecode import unidecode
 
 
-def get_data(path='/home/lubo/code/wRajter/FaVoriTe/FaVoriTe/data/top100.csv', first_lang='English', second_lang='German', size=100):
+def get_data(path='/home/lubo/code/wRajter/FaVoriTe/FaVoriTe/data/top100.csv', size=100):
     '''returns the dictionary of words with its corresponding translation, you can optionally specify number of words you want to use'''
     words = pd.read_csv(path)
     words_resized = words.head(size)
